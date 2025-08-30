@@ -1,15 +1,14 @@
+# Streamlit Single-Column Chat
+
+A Streamlit component that allows you to easily create a single-column, stacked chat UI in your applications. This is useful for building simple chatbots and conversational interfaces.
+
+
 ## Overview
 
-This repository is a template and showcase for building modern, well-structured Streamlit applications. It features a modular architecture for easy management and scalability of data apps.
+This repository provides a straightforward way to implement a chat interface where messages are displayed vertically in a single column. It leverages Streamlit's native chat elements for a clean and integrated user experience.
 
-It serves as a practical guide and starting point for developing interactive web applications using Python and Streamlit.
+## Features
 
-## Showcase Overview
-
-The application is organized into the following sections, each demonstrating various Streamlit features:
-
-- **Text & Content**: Displaying text, Markdown, code blocks, and LaTeX
-- **Interactive Controls**: Gallery of widgets such as buttons, sliders, and select boxes
-- **Data Display**: Interactive dataframes, tables, and metrics
-- **Layout & Design**: Organizing content with columns, containers, tabs, and sidebar
-- **Charts & Graphs**: Interactive visualizations with Plotly
+-   **Single-Column Layout**: A classic, clean chat interface where messages are stacked chronologically.
+-   **Stateful Conversations**: Remembers the chat history during a session.
+-   **Easy to Use**: Built with Streamlit's native `st.chat_input` and `st.chat_message` for simplicity and reliability.

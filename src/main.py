@@ -1,6 +1,9 @@
+import os
+
 import streamlit as st
 
-from src.clients.mock_client import MockApiClient
+from dev.mocks.mock_ollama_client import MockOllamaApiClient
+from src.clients.ollama_api_client.client import OllamaApiClient
 from src.components.chat_ui import render_chat_messages
 from src.components.sidebar import render_sidebar
 from src.services.conversation_service import ConversationService
@@ -12,7 +15,18 @@ def initialize_session():
         "conversation_service" not in st.session_state
         or st.session_state.conversation_service is None
     ):
-        api_client = MockApiClient()
+        # Check DEBUG environment variable to decide which client to use
+        debug_mode = os.getenv("DEBUG", "false").lower() == "true"
+
+        if debug_mode:
+            api_client = MockOllamaApiClient()
+        else:
+            try:
+                api_client = OllamaApiClient()
+            except ValueError:
+                # Fallback to mock client if environment variables are not configured
+                api_client = MockOllamaApiClient()
+
         st.session_state.conversation_service = ConversationService(api_client)
 
 
